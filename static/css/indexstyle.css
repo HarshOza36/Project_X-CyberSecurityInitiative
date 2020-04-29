@@ -1,0 +1,23 @@
+body {
+  /* padding-top: 50px; */
+  /* background-image: url("matrix.jpg"); */
+  color: white;
+}
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+.content {
+  position: relative;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 0px;
+  margin-left: 0px;
+  margin-right: 500px;
+  margin-top: 600px;
+}
