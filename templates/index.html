@@ -1,0 +1,69 @@
+{% extends "bootstrap/base.html" %} {% block title %} Project-X {% endblock %}
+{% block styles %} {{super()}}
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!-- Tell the browser to be responsive to screen width -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="{{url_for('static', filename='assets/images/favicon2.png')}}"
+/>
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename='css/indexstyle.css')}}"
+/>
+{% endblock %} {% block content %}
+<!-- The video -->
+<video autoplay muted loop id="myVideo">
+  <source
+    type="video/mp4"
+    src="{{url_for('static', filename='Matrix Raining Code.mp4')}}"
+  />
+</video>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button
+        type="button"
+        class="navbar-toggle collapsed"
+        data-toggle="collapse"
+        data-target="#navbar"
+        aria-expanded="false"
+        aria-controls="navbar"
+      >
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{{ url_for('index') }}">Project-X</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+        <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+      </ul>
+    </div>
+    <!--/.nav-collapse -->
+  </div>
+</nav>
+
+<div class="container">
+  <div class="content">
+    <h1>Project-X : Cyber Security Initiative</h1>
+    <h3>
+      This is developed for a college project.<br />
+      By Harsh Oza,Darrel Noronha and Shelton Pinto.
+    </h3>
+  </div>
+</div>
+<!-- /.container -->
+<script>
+  // Get the video
+  var video = document.getElementById("myVideo");
+</script>
+{% endblock %}

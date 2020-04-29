@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- Favicon icon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{{url_for('static', filename='assets/images/favicon2.png')}}"
+    />
+    <title>Project X</title>
+    <!-- Custom CSS -->
+    <link
+      href="{{url_for('static', filename='dist/css/style.min.css')}}"
+      rel="stylesheet"
+    />
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-image: url("static/css/images/bmatrix.jpg"); 
+        /* background-color: red; */
+        /* background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover; */
+       
+      }
+      .wrapper1{
+        margin-top: 50px;
+        text-align: center;
+        line-height: 20px;
+        left: 250px;
+	      
+      }
+      .wrapper1 h1{
+        font-size: 40px;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 5px grey;
+        text-align: center;
+        color: #f5ff66;
+      }
+      .pricing_wrapper{
+        display: flex;
+        justify-content: center;
+        padding: 40px;
+       
+	     
+      }
+      .pricing_wrapper .pricing_item{
+        width: 400px;
+        background: #2E2E2E;
+	      color: #f5ff66;
+        margin: 5px 10px 50 px;
+        padding: 30px 20px;
+        border-radius: 25px;
+      }
+      
+      .pricing_wrapper .pricing_item:hover{
+        background: #0489B1;
+        color: #fff;
+        box-shadow: 0 0 15px rgba(0,0,0,1);
+        transform: scale(1.1);
+        z-index: 1;
+        border-radius: 25px;
+      }  
+      .pricing_wrapper .pricing_item a{
+        text-decoration: none;
+        background: #0489B1;
+        color: white;
+        padding: 10px 60px;
+        display: inline-block;
+        border-radius: 25px;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+      .pricing_wrapper .pricing_item:hover a{
+        background: #2E2E2E;
+        color: #0489B1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Preloader -  in spinners.css -->
+    <div class="preloader">
+      <div class="lds-ripple">
+        <div class="lds-pos"></div>
+        <div class="lds-pos"></div>
+      </div>
+    </div>
+
+    <!-- Main wrapper -  in pages.scss -->
+    <div id="main-wrapper">
+
+      <!-- Topbar header -  in pages.scss -->
+
+      <header class="topbar" data-navbarbg="skin5">
+        <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+          <div class="navbar-header" data-logobg="skin5">
+            <!-- This is for the sidebar toggle which is visible on mobile only -->
+            <a
+              class="nav-toggler waves-effect waves-light d-block d-md-none"
+              href="javascript:void(0)"
+              ><i class="ti-menu ti-close"></i></a>
+
+              <!-- Logo icon -->
+              <b class="logo-icon p-l-10">
+                <!-- <i class="wi wi-sunset"></i> //-->
+                <!-- Dark Logo icon -->
+                <img style='width:50px;height:50px;'
+                  src="{{url_for('static', filename='assets/images/favicon2.png')}}"
+                  alt="homepage"
+                  class="light-logo"
+                />
+              </b>
+            </a>
+            <!-- End Logo -->
+            <!-- Toggle which is visible on mobile only -->
+            <a
+              class="topbartoggler d-block d-md-none waves-effect waves-light"
+              href="javascript:void(0)"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+              ><i class="ti-more"></i
+            ></a>
+          </div>
+          <!-- End Logo -->
+          <div
+            class="navbar-collapse collapse"
+            id="navbarSupportedContent"
+            data-navbarbg="skin5"
+          >
+            <!-- toggle and nav items -->
+            <ul class="navbar-nav float-left mr-auto">
+              <li class="nav-item d-none d-md-block">
+                <a
+                  class="nav-link sidebartoggler waves-effect waves-light"
+                  href="javascript:void(0)"
+                  data-sidebartype="mini-sidebar"
+                  ><i class="mdi mdi-menu font-24"></i
+                ></a>
+              </li>
+           
+            </ul>
+            <!-- Right side toggle and nav items -->
+            <ul class="navbar-nav float-right">
+             
+              <!-- User profile and search -->
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic"
+                  href=""
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  ><img
+                    src="{{url_for('static', filename='assets/images/users/1.jpg')}}"
+                    alt="user"
+                    class="rounded-circle"
+                    width="31"
+                /></a>
+                <div class="dropdown-menu dropdown-menu-right user-dd animated">
+                  <a class="dropdown-item" href="javascript:void(0)"
+                    ><i class="ti-user m-r-5 m-l-5"></i> My Profile</a
+                  >
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{{ url_for('logout')}}"
+                    ><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a
+                  >
+                </div>
+              </li>
+              <!-- User profile and search -->
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- End Topbar header -->
+      <!-- Left Sidebar -  in sidebar.scss  -->
+      <aside class="left-sidebar" data-sidebarbg="skin5">
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar">
+          <!-- Sidebar navigation-->
+          <nav class="sidebar-nav">
+            <ul id="sidebarnav" class="p-t-30">
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="{{url_for('dash')}}"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-view-dashboard"></i
+                  ><span class="hide-menu">Dashboard</span></a
+                >
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link has-arrow waves-effect waves-dark"
+                  href="javascript:void(0)"
+                  aria-expanded="false"
+                  ><i class="fab fa-keycdn"></i
+                    ><span class="hide-menu">Spam Test </span></a
+                >
+                <ul aria-expanded="false" class="collapse  first-level">
+                  <li class="sidebar-item">
+                    <a href="{{url_for('spamsmsdetect')}}" class="sidebar-link"
+                      ><i class="far fa-file"></i><span class="hide-menu"> Sms </span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a href="{{url_for('spamemaildetect')}}" class="sidebar-link"
+                      ><i class="far fa-file"></i><span class="hide-menu"> Email </span></a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="{{url_for('aboutus')}}"
+                  aria-expanded="false"
+                  ><i class="fas fa-users"></i
+                    ><span class="hide-menu">About Us</span></a
+                >
+              </li>
+            </ul>
+          </nav>
+          <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+      </aside>
+      <!-- End Left Sidebar -  in sidebar.scss  -->
+       <div class="page-wrapper">
+      <!--  <div class="heading">
+          <h1>Welcome to CyberSecurity Initiative</h1>
+        </div> -->
+        <div class="wrapper1">
+          <h1>Welcome to CyberSecurity Initiative</h1>
+          <div class="pricing_wrapper">
+            <div class="pricing_item">
+              <h2>What is Cyber Security?</h2>
+              <img src="{{url_for('static', filename='css/images/cs.jpg')}}" width=450 style="background-size: contain; height: auto; width: 100%;"></img>
+              <p style="font-size: 18px; ">Cybersecurity is the practice of protecting systems, networks, and programs from digital attacks. These cyberattacks are usually aimed at accessing, changing, or destroying sensitive information; extorting money from users; or interrupting normal business processes.
+                Implementing effective cybersecurity measures is particularly challenging today because there are more devices than people, and attackers are becoming more innovative.
+              </p>
+              <a href="https://www.cisco.com/c/en/us/products/security/what-is-cybersecurity.html">READ MORE</a>
+            </div>
+            <br>
+            
+            
+          </div>
+          <br>
+          <div class="pricing_wrapper">
+            <div class="pricing_item">
+              <h2>What is Hacking?</h2>
+              <img src="{{url_for('static', filename='css/images/hk.jpg')}}" width=450 style="background-size: contain; height: auto; width: 100%;"></img>
+              <p style="font-size: 18px; ">Hacking refers to activities that seek to compromise digital devices, such as computers, smartphones, tablets, and even entire networks. And while hacking might not always be for malicious purposes, nowadays most references to hacking, and hackers, characterize it/them as unlawful activity by cybercriminals—motivated by financial gain, protest, information gathering (spying), and even just for the “fun” of the challenge.
+              </p>
+              <a href="https://www.malwarebytes.com/hacker/">READ MORE</a>
+            </div>
+            <br>
+            
+            
+          </div>
+          <br>
+          <div class="pricing_wrapper">
+            <div class="pricing_item">
+              <h2>How Cyber Security works?</h2>
+              <iframe width="450" height="300" src="https://www.youtube.com/embed/JdfmV2KW11I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="background-size: contain; height: auto; width: 100%;"></iframe>
+              <p style="font-size: 18px; ">Using software to protect your systems and networks acts as a deterrent for hackers who prefer easy targets that require less effort and carry less risk of being caught. Although no software can promise 100% impenetrability, security software makes it that much harder for cyber criminals to create access points, and we can think of it as an extra layer of protection from hackers.
+              </p>
+              <a href="https://www.delta-net.com/compliance/cyber-security/faqs/how-does-cyber-security-work">READ MORE</a>
+            </div>
+            
+          <br>  
+          </div>
+          <br>
+          <br>
+          <div class="pricing_wrapper">
+            <div class="pricing_item">
+              <h2>Why is it important?</h2>
+              <img src="{{url_for('static', filename='css/images/csimp.jpg')}}" width=450 style="background-size: contain; height: auto; width: 100%;"></img>
+              <p style="font-size: 18px; ">Cybersecurity is important because it encompasses everything that pertains to protecting our sensitive data, personally identifiable information (PII), protected health information (PHI), personal information, intellectual property, data, and governmental and industry information systems from theft and damage attempted by criminals and adversaries.
+              </p>
+              <a href="https://www.upguard.com/blog/cybersecurity-important">READ MORE</a>
+            </div>
+            <br>
+            
+            
+          </div>
+        </div>
+      </div>
+        
+    <div class="page-wrapper">
+      <footer class="footer text-center">
+        <b style="color: #f5ff66;font-size:xx-large">All rights are Reserved.</b>
+    </footer>
+    </div>
+      
+      
+    </div>
+    <!-- End Wrapper -->
+    <!-- All Jquery -->
+    <script src="{{url_for('static', filename='assets/libs/jquery/dist/jquery.min.js')}}"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="{{url_for('static', filename='assets/libs/popper.js/dist/umd/popper.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/libs/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/extra-libs/sparkline/sparkline.js')}}"></script>
+    <!--Wave Effects -->
+    <script src="{{url_for('static', filename='dist/js/waves.js')}}"></script>
+    <!--Menu sidebar -->
+    <script src="{{url_for('static', filename='dist/js/sidebarmenu.js')}}"></script>
+    <!--Custom JavaScript -->
+    <script src="{{url_for('static', filename='dist/js/custom.min.js')}}"></script>
+    <!--This page JavaScript -->
+    <!-- <script src="../../dist/js/pages/dashboards/dashboard1.js"></script> -->
+  </body>
+</html>

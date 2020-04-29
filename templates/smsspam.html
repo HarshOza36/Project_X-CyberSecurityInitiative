@@ -1,0 +1,362 @@
+{% import "bootstrap/wtf.html" as wtf %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- Favicon icon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{{url_for('static', filename='assets/images/favicon2.png')}}"
+    />
+    <title>Project X</title>
+    <!-- Custom CSS -->
+    <link
+      href="{{url_for('static', filename='dist/css/style.min.css')}}"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: black;
+      }
+      .sl {
+        -webkit-font-smoothing: antialiased;
+      }
+      .card.card-carousel {
+        border: 0;
+        margin-bottom: 30px;
+        margin-top: 30px;
+        border-radius: 6px;
+        color: rgba(0, 0, 0, 0.87);
+        background: rgb(0, 0, 0);
+        width: 100%;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+          0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      }
+      .card.card-carousel img {
+        border-radius: 6px;
+      }
+      .carousel-inner {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+      }
+      .carousel-item {
+        position: relative;
+        display: none;
+        align-items: center;
+        width: 100% !important;
+        transition: transform 0.6s ease;
+        backface-visibility: hidden;
+        perspective: 1000px;
+      }
+      .carousel-item.active {
+        display: block;
+      }
+      .carousel .carousel-control-next .material-icons {
+        z-index: 5;
+        display: inline-block;
+        font-size: 50px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 50px;
+        margin: auto;
+      }
+      .carousel .carousel-control-prev .material-icons {
+        z-index: 5;
+        display: inline-block;
+        font-size: 50px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 50px;
+        margin: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Preloader -  in spinners.css -->
+    <div class="preloader">
+      <div class="lds-ripple">
+        <div class="lds-pos"></div>
+        <div class="lds-pos"></div>
+      </div>
+    </div>
+    <!-- Main wrapper -  in pages.scss -->
+    <div id="main-wrapper">
+      <!-- Topbar header -  in pages.scss -->
+      <header class="topbar" data-navbarbg="skin5">
+        <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+          <div class="navbar-header" data-logobg="skin5">
+            <!-- This is for the sidebar toggle which is visible on mobile only -->
+            <a
+              class="nav-toggler waves-effect waves-light d-block d-md-none"
+              href="javascript:void(0)"
+              ><i class="ti-menu ti-close"></i
+            ></a>
+            <!-- Logo -->
+              <!-- Logo icon -->
+              <b class="logo-icon p-l-10">
+                <!--// <i class="wi wi-sunset"></i> //-->
+                <!-- Dark Logo icon -->
+                <img
+                  style="width:50px;height:50px;"
+                  src="{{url_for('static', filename='assets/images/favicon2.png')}}"
+                  alt="homepage"
+                  class="light-logo"
+                />
+              </b>
+            </a>
+            <!-- End Logo -->
+            <!-- Toggle which is visible on mobile only -->
+            <a
+              class="topbartoggler d-block d-md-none waves-effect waves-light"
+              href="javascript:void(0)"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+              ><i class="ti-more"></i
+            ></a>
+          </div>
+          <!-- End Logo -->
+          <div
+            class="navbar-collapse collapse"
+            id="navbarSupportedContent"
+            data-navbarbg="skin5"
+          >
+            <!-- toggle and nav items -->
+            <ul class="navbar-nav float-left mr-auto">
+              <li class="nav-item d-none d-md-block">
+                <a
+                  class="nav-link sidebartoggler waves-effect waves-light"
+                  href="javascript:void(0)"
+                  data-sidebartype="mini-sidebar"
+                  ><i class="mdi mdi-menu font-24"></i
+                ></a>
+              </li>
+            </ul>
+            <!-- Right side toggle and nav items -->
+            <ul class="navbar-nav float-right">
+              <!-- User profile and search -->
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic"
+                  href=""
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  ><img
+                    src="{{url_for('static', filename='assets/images/users/1.jpg')}}"
+                    alt="user"
+                    class="rounded-circle"
+                    width="31"
+                /></a>
+                <div class="dropdown-menu dropdown-menu-right user-dd animated">
+                  <a class="dropdown-item" href="javascript:void(0)"
+                    ><i class="ti-user m-r-5 m-l-5"></i> My Profile</a
+                  >
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{{ url_for('logout')}}"
+                    ><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a
+                  >
+                </div>
+              </li>
+              <!-- User profile and search -->
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- End Topbar header -->
+      <!-- Left Sidebar -  in sidebar.scss  -->
+      <aside class="left-sidebar" data-sidebarbg="skin5">
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar">
+          <!-- Sidebar navigation-->
+          <nav class="sidebar-nav">
+            <ul id="sidebarnav" class="p-t-30">
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="{{url_for('dash')}}"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-view-dashboard"></i
+                  ><span class="hide-menu">Dashboard</span></a
+                >
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link has-arrow waves-effect waves-dark"
+                  href="javascript:void(0)"
+                  aria-expanded="false"
+                  ><i class="fab fa-keycdn"></i
+                  ><span class="hide-menu">Spam Test </span></a
+                >
+                <ul aria-expanded="false" class="collapse  first-level">
+                  <li class="sidebar-item">
+                    <a href="{{url_for('spamsmsdetect')}}" class="sidebar-link"
+                      ><i class="far fa-file"></i
+                      ><span class="hide-menu"> Sms </span></a
+                    >
+                  </li>
+                  <li class="sidebar-item">
+                    <a
+                      href="{{url_for('spamemaildetect')}}"
+                      class="sidebar-link"
+                      ><i class="far fa-file"></i
+                      ><span class="hide-menu"> Email </span></a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="{{url_for('aboutus')}}"
+                  aria-expanded="false"
+                  ><i class="fas fa-users"></i
+                  ><span class="hide-menu">About Us</span></a
+                >
+              </li>
+            </ul>
+          </nav>
+          <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+      </aside>
+      <!-- End Left Sidebar -  in sidebar.scss  -->
+      <div class="page-wrapper">
+        <div class="text-center">
+          <h1 style="color:#3300ff">
+            Welcome to the CyberSecurity Initiative.
+          </h1>
+          <div class="text-left">
+            <div class="container">
+              <form class="form-signin" method="POST" action="/spamsmsdetect">
+                <h3 class="form-signin-heading" style="text-align: center;">
+                  Please Follow the steps below to check if the message is spam
+                  or not.
+                </h3>
+                <div class="container sl">
+                  <div class="section" id="carousel">
+                    <div class="container sl">
+                      <div class="row">
+                        <div class="col-md-8 mr-auto ml-auto">
+                          <!-- Carousel Card -->
+                          <div class="card card-raised card-carousel">
+                            <div
+                              id="carouselExampleIndicators"
+                              class="carousel slide"
+                              data-ride="carousel"
+                              data-interval="3000"
+                            >
+                             
+                              <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                  <img
+                                    class="d-block w-100"
+                                    src="{{url_for('static', filename='css/images/sms1edit.png')}}"
+                                    alt="First slide"
+                                  />
+                                  <p
+                                    style="text-align:center; background-color: black;color: chartreuse;"
+                                  >
+                                    1.Paste the message in the field.
+                                  </p>
+                                </div>
+                                <div class="carousel-item">
+                                  <img
+                                    class="d-block w-100"
+                                    src="{{url_for('static', filename='css/images/editedbuttonclick.png')}}"
+                                    alt="Second slide"
+                                  />
+                                  <p
+                                    style="text-align:center; background-color: black;color: chartreuse;"
+                                  >
+                                    2.Press the button 'Detect Spam'.
+                                  </p>
+                                </div>
+                                <div class="carousel-item">
+                                  <img
+                                    class="d-block w-100"
+                                    src="{{url_for('static', filename='css/images/editednotspamimg.png')}}"
+                                    alt="Third slide"
+                                  />
+                                    <p
+                                    style="text-align:center; background-color: black;color: chartreuse;"
+                                  >3.Message will be displayed as spam or not.
+                                  </p>
+                                </div>
+                              </div>
+                              <a
+                                class="carousel-control-prev"
+                                href="#carouselExampleIndicators"
+                                role="button"
+                                data-slide="prev"
+                              ><i class="fas fa-angle-double-left" style="color: chartreuse;margin-right: 150px;font-size: 40px;"></i>
+                              </a>
+                              <a
+                                class="carousel-control-next"
+                                href="#carouselExampleIndicators"
+                                role="button"
+                                data-slide="next"
+                              ><i class="fas fa-angle-double-right" style="color: chartreuse;margin-left: 150px;font-size: 40px;"></i>
+                              </a>
+                            </div>
+                          </div>
+                          <!-- End Carousel Card -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {{ form.hidden_tag() }} {{ wtf.form_field(form.ip) }}
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                  Detect Spam
+                </button>
+                {%if(p=='Spam'):%}
+                    <h4 style="color: red;">{{p}}</h4>
+                {%else:%}
+                    <h4 style="color: rgb(60, 255, 0);">{{p}}</h4>
+                {% endif %}
+              </form>
+            </div>
+          </div>
+        </div>
+        <footer class="footer text-center">
+          All rights are Reserved.
+        </footer>
+      </div>
+    </div>
+    <!-- End Wrapper -->
+    <!-- All Jquery -->
+    <script src="{{url_for('static', filename='assets/libs/jquery/dist/jquery.min.js')}}"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="{{url_for('static', filename='assets/libs/popper.js/dist/umd/popper.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/libs/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='assets/extra-libs/sparkline/sparkline.js')}}"></script>
+    <!--Wave Effects -->
+    <script src="{{url_for('static', filename='dist/js/waves.js')}}"></script>
+    <!--Menu sidebar -->
+    <script src="{{url_for('static', filename='dist/js/sidebarmenu.js')}}"></script>
+    <!--Custom JavaScript -->
+    <script src="{{url_for('static', filename='dist/js/custom.min.js')}}"></script>
+    <!--This page JavaScript -->
+    <!-- <script src="../../dist/js/pages/dashboards/dashboard1.js"></script> -->
+  </body>
+</html>
