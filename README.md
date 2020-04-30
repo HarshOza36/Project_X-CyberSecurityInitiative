@@ -8,20 +8,21 @@ To use this Download this Repository
 Open command line
 Open your folder where you have the extracted Downloaded Files
 
-Step 1
-
+**Step 1**
+```
 pip install virtualenv
-
-Step 2
-
+```
+**Step 2**
+```
 virtualenv env
-
+```
 here env is your environent name
 
-Step 3
-
+**Step 3**
+```
 pip install -r requirements.txt
-
-Step 4
-
+```
+**Step 4**
+```
 python app.py
+```
