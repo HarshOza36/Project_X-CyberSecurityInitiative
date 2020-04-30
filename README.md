@@ -3,5 +3,25 @@ This project is used for classification off SMS and Email spam.It has a full das
 This project is live at 
 # https://projectxcybersecurityinit.herokuapp.com/
 
-Some Static files are yet to be uploaded!
-Sorry!
+To use this Download this Repository
+
+Open command line
+Open your folder where you have the extracted Downloaded Files
+
+Step 1
+
+pip install virtualenv
+
+Step 2
+
+virtualenv env
+
+here env is your environent name
+
+Step 3
+
+pip install -r requirements.txt
+
+Step 4
+
+python app.py
