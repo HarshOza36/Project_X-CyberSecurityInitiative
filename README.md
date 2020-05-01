@@ -17,11 +17,17 @@ pip install virtualenv
 virtualenv env
 ```
 here env is your environent name
+```
+source env/Scripts/activate
+```
+to activate our environment
 
 **Step 3**
 ```
 pip install -r requirements.txt
 ```
+To install dependencies
+
 **Step 4**
 ```
 python app.py
