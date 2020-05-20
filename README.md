@@ -18,9 +18,13 @@ virtualenv env
 ```
 here env is your environent name
 ```
-source env/Scripts/activate
+source env/Scripts/activate     ->to activate our environment for UNIX
 ```
-to activate our environment
+
+```
+.\env\Scripts\activate      ->to activate our environment for Windows
+```
+
 
 **Step 3**
 ```
