@@ -1,4 +1,8 @@
 # Project_X-CyberSecurityInitiative
+
+[![Project license](https://img.shields.io/apm/l/vim-mode?style=plastic)](https://projectxcybersecurityinit.herokuapp.com/)
+![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)
+
 This project is used for classification of SMS and Email spam.It has a full dashboard with login system connected to Mongo DB
 This project is live at 
 # https://projectxcybersecurityinit.herokuapp.com/
