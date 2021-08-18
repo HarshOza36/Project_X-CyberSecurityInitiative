@@ -7,36 +7,36 @@ This project is used for classification of SMS and Email spam.It has a full dash
 This project is live at 
 # https://projectxcybersecurityinit.herokuapp.com/
 
-To use this Download this Repository
 
-Open command line
-Open your folder where you have the extracted Downloaded Files
+Download this Repository to start using the project.
 
-**Step 1**
+Open command line and then open your folder where you have the extracted Downloaded Files and then follow the below instructions.
+
+**Step 1** - Install Virtualenv
 ```
 pip install virtualenv
 ```
-**Step 2**
+**Step 2** - Create and activate virtual environment
 ```
 virtualenv env
 ```
-here env is your environent name
+here "env" is your environent name
 ```
-source env/Scripts/activate     ->to activate our environment for UNIX
-```
-
-```
-.\env\Scripts\activate      ->to activate our environment for Windows
+source env/Scripts/activate     -> to activate our environment for UNIX
 ```
 
+```
+.\env\Scripts\activate      -> to activate our environment for Windows
+```
 
-**Step 3**
+
+**Step 3** - Install dependencies
+
 ```
 pip install -r requirements.txt
 ```
-To install dependencies
 
-**Step 4**
+**Step 4** - Run the file
 ```
 python app.py
 ```
